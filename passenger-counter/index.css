@@ -35,3 +35,7 @@ button{
 #save-btn{
     background: darkgreen;
 }
+
+#reset-btn{
+    background: blue;
+}
