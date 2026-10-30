@@ -1,0 +1,1 @@
+Built a simple working calculator with chained operations on your own, and i debugged it with console.log
