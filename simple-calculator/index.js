@@ -1,27 +1,21 @@
-let num1 = 8
-let num2 = 2
-document.getElementById("num1-el").textContent = num1
-document.getElementById("num2-el").textContent = num2
+const keys = document.querySelector('.calculator-keys');
+const display = document.querySelector('.calculator-screen');
 
-let sumEl = document.getElementById("sum-el")
+keys.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button) return;
 
-function add(){
-    let result = num1 + num2
-    sumEl.textContent = "Sum: " + result
-}
+    const isSpecial =
+        button.classList.contains('operator') ||
+        button.classList.contains('decimal') ||
+        button.classList.contains('all-clear') ||
+        button.classList.contains('equal-sign');
 
-function subtract(){
-    let result = num1 - num2
-    sumEl.textContent = "Sum: " + result
-}
+    if (isSpecial) return;
 
-function divide(){
-    let result = num1 / num2
-    sumEl.textContent = "Sum: " + result
-}
-
-function multiply(){
-    let result = num1 * num2
-    sumEl.textContent = "Sum: " + result
-}
-
+    if (display.value === '0') {
+        display.value = button.value;
+    } else {
+        display.value += button.value;
+    }
+});
